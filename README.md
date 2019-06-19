@@ -46,7 +46,15 @@ rest.markets()
   .catch((error) => {
     console.log(error.message)
   })
-
+  
+// retrieve orders which is in `wait`, `convert`, or `done` state
+rest.orders({ market: 'maxtwd', state: ['wait', 'convert', 'done'] })
+  .then((data) => {
+    console.log(data)
+  })
+  .catch((error) => {
+    console.log(error.message)
+  })
 
 // connect to websocket
 ws.open().then(() => {
